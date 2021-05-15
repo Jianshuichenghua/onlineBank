@@ -40,7 +40,7 @@ const actions = {
       }
       login(params)
         .then(res => {
-
+          commit('SET_NAME',params.account)
           commit('SET_TOKEN', '12hdhhdhdhhd2222')
           resolve(res)
         })
