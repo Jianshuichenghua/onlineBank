@@ -107,6 +107,7 @@
 
 <script>
 import SlideVerify from "@/components/SlideVerify";
+import { register } from "@/api/register";
 export default {
   data() {
     var validatePass2 = (rule, value, callback) => {
@@ -172,7 +173,7 @@ export default {
   methods: {
     onSuccess() {
       this.showSlide = false;
-      this._login();
+      this._register();
     },
     onFail() {
       this.$message.error("验证失败");
@@ -193,24 +194,17 @@ export default {
       this.$router.replace({ path: "/login" });
       // this.$router.push(this.$route.query.redirect);
     },
-    _login() {
-      this.$store
-        .dispatch("user/_login", this.ruleForm)
+    _register() {
+      register(this.ruleForm)
         .then((res) => {
-          if (!res.data.success) {
-            this.refresh();
-          } else {
-            this.$router.push({ path: "/dashbord" });
-            // this.$router.push(this.$route.query.redirect);
-            if (this.notifyObj) {
-              this.notifyObj.close();
-            }
-            this.notifyObj = null;
+          this.$router.push({ path: "/login" });
+          if (this.notifyObj) {
+            this.notifyObj.close();
           }
+          this.notifyObj = null;
         })
-        .catch((error) => {
+        .catch((err) => {
           this.refresh();
-          this.$message.error(error);
         });
     },
     shopTip() {
