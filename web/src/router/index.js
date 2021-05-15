@@ -159,29 +159,16 @@ export const asyncRoutes = [
     ]
   },
   {
-    path: '/components',
+    path: '/fund/deposit',
     component: Layout,
-    name: 'Components',
-    redirect: '/components/slide-yz',
-    meta: { icon: 'el-icon-coin', title: '部分组件' },
+    name: 'Deposit',
+    redirect: '/fund/deposit',
     children: [
       {
-        path: 'slide-yz',
-        name: 'Sldie-yz',
-        component: () => import('@/views/components/slide-yz'),
-        meta: { icon: 'el-icon-s-claim', title: '滑动验证' }
-      },
-      {
-        path: 'upload',
-        name: 'Upload',
-        component: () => import('@/views/components/pushImg'),
-        meta: { icon: 'el-icon-upload', title: '上传图片' }
-      },
-      {
-        path: 'carousel',
-        name: 'Carousel',
-        component: () => import('@/views/components/carousel'),
-        meta: { icon: 'el-icon-lunbo iconfont', title: '轮播' }
+        path: 'deposit',
+        name: 'deposit',
+        component: () => import('@/views/fund/deposit'),
+        meta: { icon: 'el-icon-s-claim', title: 'Deposit And Withdrawal' }
       }
     ]
   },
