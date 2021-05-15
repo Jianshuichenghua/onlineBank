@@ -5,5 +5,5 @@ const baseUrl = `account`;
 export function findByAccountLike(data) {
 
     const url = `${baseUrl}/findByAccountLike`
-    return $axios.post(url, data)
+    return $axios.get(url, data)
 }

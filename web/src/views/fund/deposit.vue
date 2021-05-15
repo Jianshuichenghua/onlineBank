@@ -25,20 +25,20 @@
         <el-button type="primary" @click="deposit">deposit</el-button>
         <el-button type="primary" @click="withdrawal">withdrawal</el-button>
       </el-form-item>
-    </el-form>
-    <el-dialog
+      <el-dialog
         title="Password Confirm"
         :visible.sync="passwrodConfirmVisible"
         width="30%"
         :before-close="passwrodConfirmClose">
-        <el-form-item label="Please enter the password: ">
-            <el-input placeholder="Please enter content" v-model="form.password"/>
+        <el-form-item label="Password: ">
+            <el-input placeholder="Please enter the password" v-model="form.password" type="password"/>
         </el-form-item>
         <span slot="footer" class="dialog-footer">
             <el-button @click="passwrodConfirmVisible = false;form.password = ''">Cancel</el-button>
             <el-button type="primary" @click="submit">Confirm</el-button>
         </span>
     </el-dialog>
+    </el-form>
   </div>
 </template>
 
@@ -62,17 +62,23 @@ export default {
   methods: {
     findByAccountLike(account, cb) {
         const self = this;
-        findByAccountLike(account)
+        const data = {
+          "account": account
+        }
+        findByAccountLike(data)
         .then(res => {
             const accounts = res;
-            cb(self.convertAccounts(accounts));
+            const result = self.convertAccounts(accounts);
+            cb(result);
         })
         .catch(error => {
             this.$message.error(error);
         })
     },
     convertAccounts(accounts) {
-        return accounts.map(account => account.account);
+        return accounts.map(account => {
+          return {"value": account.account};
+        });
     },
     deposit() {
         const self = this;
@@ -92,24 +98,24 @@ export default {
         const self = this;
         if ('deposit' === self.methodType) {
 
-            doSubmit(deposit);
+            self.doSubmit(deposit);
         } else if ('withdrawal' === self.methodType) {
 
-            doSubmit(withdrawal);
+            self.doSubmit(withdrawal);
         }
     },
     doSubmit(submit) {
-        submit(self.form)
-        .then(res => {
-            const balance = res.balance;
-            const self = this;
-            self.passwrodConfirmVisible = false;
-            this.$message.success(`${self.methodType} successfully! balance: ${balance}`);
-        })
-        .catch(error => {
-            console.log(error);
-            this.$message.error(error.msg);
-        })
+      const self = this;
+      submit(self.form)
+      .then(res => {
+          const balance = res.balance;
+          const self = this;
+          self.passwrodConfirmVisible = false;
+          this.$message.success(`${self.methodType} successfully! balance: ${balance}`);
+      })
+      .catch(error => {
+          this.$message.error(error.msg);
+      })
     }
   }
 }
