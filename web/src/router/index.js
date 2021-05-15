@@ -168,6 +168,21 @@ export const asyncRoutes = [
         name: 'deposit-index',
         component: () => import('@/views/fund/deposit'),
         meta: { icon: 'el-icon-s-claim', title: 'Deposit And Withdrawal' }
+      },
+
+    ]
+  },
+  {
+    path: '/funds',
+    component: Layout,
+    name: 'funds',
+    redirect: '/funds/fund-list',
+    children: [
+      {
+        path: 'fund-list',
+        name: 'Fund-list',
+        component: () => import('@/views/fund/funds'),
+        meta: { title: 'view Funds Transactions' }
       }
     ]
   },
@@ -268,7 +283,7 @@ export function resetRouter() {
   const reset = creatRouter()
   router.matcher = reset.matcher
 }
-const routerRole = ["deposit", "deposit-index", "Home", "Dashbord", "Driver", "Driver-index", "Permission", "PageUser", "PageAdmin", "Roles", "Table", "BaseTable", "ComplexTable", "Icons", "Icons-index", "Components", "Sldie-yz", "Upload", "Carousel", "Echarts", "Sldie-chart", "Dynamic-chart", "Map-chart", "Excel", "Excel-out", "Excel-in", "Mutiheader-out", "Error", "Page404", "Github", "NavTest", "Nav1", "Nav2", "Nav2-1", "Nav2-2", "Nav2-2-1", "Nav2-2-2", "*404"]
+const routerRole = ["deposit", "deposit-index","funds", "Fund-list", "Home", "Dashbord", "Driver", "Driver-index", "Permission", "PageUser", "PageAdmin", "Roles", "Table", "BaseTable", "ComplexTable", "Icons", "Icons-index", "Components", "Sldie-yz", "Upload", "Carousel", "Echarts", "Sldie-chart", "Dynamic-chart", "Map-chart", "Excel", "Excel-out", "Excel-in", "Mutiheader-out", "Error", "Page404", "Github", "NavTest", "Nav1", "Nav2", "Nav2-1", "Nav2-2", "Nav2-2-1", "Nav2-2-2", "*404"]
 
 // 导航守卫
 router.beforeEach(async (to, from, next) => {
@@ -284,8 +299,8 @@ router.beforeEach(async (to, from, next) => {
       } else {
 
         const roles = routerRole;
-        
-        await store.dispatch('user/setRoles',roles)
+
+        await store.dispatch('user/setRoles', roles)
         await store.dispatch(
           'permission/getAsyncRoutes',
           roles
