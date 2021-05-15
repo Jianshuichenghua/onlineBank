@@ -4,7 +4,14 @@ import store from '@/store'
 import router from '@/router'
 import Vue from 'vue'
 import { Loading, Message } from 'element-ui' // 引用element-ui的加载和消息提示组件
-
+const codeMsgMap = {
+  ACCOUNT_IS_BLANK: '账号为空',
+  ACCOUNT_IS_EXISTED: '账号已存在',
+  ACCOUNT_IS_NOT_EXISTED: '账号不存在',
+  TARGET_ACCOUNT_IS_NOT_EXISTED: '目标账号不存在',
+  PASSWORD_IS_WRONG: '密码错误',
+  NOT_SUFFICIENT_FUNDS: '账户余额不足',
+}
 const $axios = axios.create({
   // 设置超时时间
   timeout: 30000,
@@ -31,15 +38,18 @@ $axios.interceptors.request.use(
 )
 // 响应拦截器
 $axios.interceptors.response.use(
-  response => {
+  res => {
     if (loading) {
       loading.close()
     }
-    const code = response.status
-    if ((code >= 200 && code < 300) || code === 304) {
-      return Promise.resolve(response.data)
+    // debugger
+    const response = res.data;
+    if (response.successful) {
+      return Promise.resolve(response.body)
     } else {
-      return Promise.reject(response)
+      const msg = codeMsgMap[response.code];
+      Message.error(msg)
+      return Promise.reject({ ...response, msg })
     }
   },
   error => {

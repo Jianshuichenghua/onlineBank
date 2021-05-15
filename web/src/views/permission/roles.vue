@@ -106,7 +106,7 @@ export default {
     }
   },
   created() {
-    this._getAllRolse()
+    // this._getAllRolse()
     this.treeData = this.getTreeData(this.allRoute)
   },
   methods: {

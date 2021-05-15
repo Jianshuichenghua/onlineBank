@@ -146,20 +146,14 @@ export default {
       this.$store
         .dispatch("user/_login", this.ruleForm)
         .then((res) => {
-          if (!res.data.success) {
-            debugger;
-            this.refresh();
-          } else {
-            this.$router.push({ path: "/dashbord" });
+        this.$router.push({ path: "/dashbord" });
             if (this.notifyObj) {
               this.notifyObj.close();
             }
             this.notifyObj = null;
-          }
         })
         .catch((error) => {
           this.refresh();
-          debugger;
           this.$message.error(error);
         });
     },
