@@ -34,17 +34,15 @@ const actions = {
   // user login
   _login({ commit }, formdatas) {
     return new Promise((resolve, reject) => {
-      login(formdatas)
+      const params ={
+        password: formdatas.password,
+        account:formdatas.user
+      }
+      login(params)
         .then(res => {
-          if (res.code === 0) {
-            if (res.data.success) {
-              Message.success(res.data.msg)
-              commit('SET_TOKEN', res.data.token)
-            } else {
-              Message.error(res.data.msg)
-            }
+      
+            commit('SET_TOKEN', '12hdhhdhdhhd2222')
             resolve(res)
-          }
         })
         .catch(error => {
           reject(error)

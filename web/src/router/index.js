@@ -6,7 +6,6 @@ Vue.use(Router)
 
 import Layout from '@/layout'
 import NavTest from './modules/nav-test'
-import { Message } from 'element-ui'
 import getTitle from '@/utils/getTitle'
 
 /**
@@ -161,12 +160,12 @@ export const asyncRoutes = [
   {
     path: '/fund/deposit',
     component: Layout,
-    name: 'Deposit',
+    name: 'deposit',
     redirect: '/fund/deposit',
     children: [
       {
         path: 'deposit',
-        name: 'deposit',
+        name: 'deposit-index',
         component: () => import('@/views/fund/deposit'),
         meta: { icon: 'el-icon-s-claim', title: 'Deposit And Withdrawal' }
       }
@@ -269,6 +268,7 @@ export function resetRouter() {
   const reset = creatRouter()
   router.matcher = reset.matcher
 }
+const routerRole = ["deposit","deposit-index" ,"Home", "Dashbord", "Driver", "Driver-index", "Permission", "PageUser", "PageAdmin", "Roles", "Table", "BaseTable", "ComplexTable", "Icons", "Icons-index", "Components", "Sldie-yz", "Upload", "Carousel", "Echarts", "Sldie-chart", "Dynamic-chart", "Map-chart", "Excel", "Excel-out", "Excel-in", "Mutiheader-out", "Error", "Page404", "Github", "NavTest", "Nav1", "Nav2", "Nav2-1", "Nav2-2", "Nav2-2-1", "Nav2-2-2", "*404"]
 
 // 导航守卫
 router.beforeEach(async (to, from, next) => {
@@ -278,23 +278,18 @@ router.beforeEach(async (to, from, next) => {
   } else {
     if (store.getters.token) {
       const hasRoles = store.getters.roles.length > 0
+      next()
       if (hasRoles) {
         next()
       } else {
-        try {
-          const { roles } = await store.dispatch('user/_getInfo')
-          const addRoutes = await store.dispatch(
-            'permission/getAsyncRoutes',
-            roles
-          )
-          router.addRoutes(addRoutes)
 
-          // hack method to ensure that addRoutes is complete
-          // set the replace: true, so the navigation will not leave a history record
-          next({ ...to, replace: true })
-        } catch (error) {
-          Message.error(error)
-        }
+        const roles = routerRole;
+        const addRoutes = await store.dispatch(
+          'permission/getAsyncRoutes',
+          roles
+        )
+        router.addRoutes(addRoutes)
+     
       }
     } else {
       next({

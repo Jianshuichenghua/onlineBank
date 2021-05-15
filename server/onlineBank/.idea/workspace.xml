@@ -15,13 +15,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d97c929f-9712-4afd-9005-685e13eb52ca" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mine/web/onlineBank/interfaces/account/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mine/web/onlineBank/interfaces/account/AccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mine/web/onlineBank/interfaces/account/AccountController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mine/web/onlineBank/interfaces/account/AccountController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../web/.env.development" beforeDir="false" afterPath="$PROJECT_DIR$/../../web/.env.development" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../web/.env.production" beforeDir="false" afterPath="$PROJECT_DIR$/../../web/.env.production" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../web/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../web/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../web/src/views/fund/deposit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../web/src/views/fund/deposit.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../web/vue.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../web/vue.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +104,7 @@
       <workItem from="1620616426569" duration="14943000" />
       <workItem from="1620714310502" duration="14461000" />
       <workItem from="1620886957071" duration="3118000" />
-      <workItem from="1621067198375" duration="500000" />
+      <workItem from="1621067198375" duration="1690000" />
     </task>
     <servers />
   </component>
