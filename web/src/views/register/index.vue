@@ -195,7 +195,16 @@ export default {
       // this.$router.push(this.$route.query.redirect);
     },
     _register() {
-      register(this.ruleForm)
+      const { user, password, email } = this.ruleForm;
+      const params = {
+        account: user,
+        password: password,
+        firstName: user,
+        lastName: "",
+        isCompany: false,
+        email: email,
+      };
+      register(params)
         .then((res) => {
           this.$router.push({ path: "/login" });
           if (this.notifyObj) {
