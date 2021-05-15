@@ -22,8 +22,15 @@ import getTitle from '@/utils/getTitle'
 /*通用routers*/
 export const currencyRoutes = [
   {
+    path: '/register',
+    name: 'register',
+    component: () => import('@/views/register'),
+    meta: { title: '登录页' },
+    hidden: true
+  },
+  {
     path: '/login',
-    name: 'Login',
+    name: 'login',
     component: () => import('@/views/login'),
     meta: { title: '登录页' },
     hidden: true
@@ -266,7 +273,7 @@ export function resetRouter() {
 // 导航守卫
 router.beforeEach(async (to, from, next) => {
   document.title = getTitle(to.meta.title)
-  if (to.path === '/login') {
+  if (to.path === '/login' || to.path === '/register') {
     next()
   } else {
     if (store.getters.token) {
@@ -293,7 +300,7 @@ router.beforeEach(async (to, from, next) => {
       next({
         path: '/login',
         query: {
-          redirect: to.fullPath
+          // redirect: to.fullPath
         }
       })
     }

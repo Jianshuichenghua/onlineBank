@@ -18,8 +18,8 @@
             <el-button
               class="swith-container-btn"
               type="primary"
-              @click="_goToRegister()"
-              >Not registered? Sign Up</el-button
+              @click="goToLogin"
+              >Already registered? Login</el-button
             >
             <!-- <img src="../../assets/personal/login.png" alt="user" /> -->
           </div>
@@ -38,6 +38,16 @@
                   placeholder="Enter your preferred username"
                   v-model="ruleForm.user"
                 ></el-input>
+                <p class="login-item-tip">
+                  Required. 150 characters or fewer. Letters, digits ancRequrer
+                  150character ' .r tewer. Leter,e digits and@//+/-/_ only.
+                </p>
+              </el-form-item>
+              <el-form-item prop="email" label="email">
+                <el-input
+                  placeholder="Enter your email"
+                  v-model="ruleForm.email"
+                ></el-input>
               </el-form-item>
 
               <el-form-item prop="password" label="Password:">
@@ -47,8 +57,21 @@
                   v-model="ruleForm.password"
                   show-password
                 ></el-input>
+                <p class="login-item-tip">
+                  Your password mustcontain at least 8 harcters.
+                </p>
               </el-form-item>
-
+              <el-form-item label="Password confirmation:" prop="checkPass">
+                <el-input
+                  placeholder="Enter your password again"
+                  type="password"
+                  v-model="ruleForm.checkPass"
+                  autocomplete="off"
+                ></el-input>
+                <p class="login-item-tip">
+                  Enter the same password as before, for verification.Register
+                </p>
+              </el-form-item>
               <el-button
                 type="primary"
                 class="loginBtn"
@@ -86,13 +109,25 @@
 import SlideVerify from "@/components/SlideVerify";
 export default {
   data() {
+    var validatePass2 = (rule, value, callback) => {
+      if (value === "") {
+        callback(new Error("please input password again"));
+      } else if (value !== this.ruleForm.password) {
+        callback(new Error("The two passwords you typed do not match!"));
+      } else {
+        callback();
+      }
+    };
+
     return {
       notifyObj: null,
       text: "向右滑动",
       showSlide: false,
       ruleForm: {
         user: "admin",
+        email: "zoozoozhu@icloud.com",
         password: "123456",
+        checkPass: "123456",
       },
       rules: {
         user: [
@@ -108,10 +143,25 @@ export default {
             trigger: "blur",
           },
         ],
+        email: [
+          {
+            required: false,
+            message: "pelase enter your password",
+            trigger: "blur",
+          },
+        ],
         password: [
           {
             required: true,
             message: "pelase enter your password again",
+            trigger: "blur",
+          },
+        ],
+        checkPass: [
+          {
+            required: true,
+            validator: validatePass2,
+            message: "pelase enter the password",
             trigger: "blur",
           },
         ],
@@ -139,18 +189,19 @@ export default {
         }
       });
     },
-    _goToRegister() {
-      this.$router.replace({ path: "/register" });
+    goToLogin() {
+      this.$router.replace({ path: "/login" });
+      // this.$router.push(this.$route.query.redirect);
     },
     _login() {
       this.$store
         .dispatch("user/_login", this.ruleForm)
         .then((res) => {
           if (!res.data.success) {
-            debugger;
             this.refresh();
           } else {
             this.$router.push({ path: "/dashbord" });
+            // this.$router.push(this.$route.query.redirect);
             if (this.notifyObj) {
               this.notifyObj.close();
             }
@@ -159,7 +210,6 @@ export default {
         })
         .catch((error) => {
           this.refresh();
-          debugger;
           this.$message.error(error);
         });
     },
@@ -291,6 +341,10 @@ export default {
 
 .el-main {
   color: #333;
+}
+
+.el-form-item__content {
+  line-height: 15px;
 }
 
 .el-form--label-top .el-form-item__label {

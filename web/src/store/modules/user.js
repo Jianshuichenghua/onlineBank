@@ -56,9 +56,6 @@ const actions = {
     resetRouter()
     router.push({
       path: '/login',
-      query: {
-        redirect: '/'
-      }
     })
   },
   _getInfo({ commit }) {
