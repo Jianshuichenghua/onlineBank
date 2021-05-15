@@ -1,5 +1,5 @@
 const path = require('path')
-const resolve = function(dir) {
+const resolve = function (dir) {
   return path.join(__dirname, dir)
 }
 
@@ -18,7 +18,7 @@ module.exports = {
   },
   devServer: {
     host: 'localhost',
-    port: '8080',
+    port: '8085',
     hot: true,
     open: true,
     overlay: {
@@ -26,12 +26,12 @@ module.exports = {
       error: true
     },
     proxy: {
-      [process.env.VUE_APP_BASE_API]: {
-        target: process.env.VUE_APP_BASE_API,
+      '^/api': {
+        target: 'http://192.168.0.101:8080/online-bank',
         changeOrigin: true,
-        secure: false,
+        logLevel: 'debug',
         pathRewrite: {
-          ['^' + process.env.VUE_APP_BASE_API]: ''
+          '^/api': ''
         }
       }
     }

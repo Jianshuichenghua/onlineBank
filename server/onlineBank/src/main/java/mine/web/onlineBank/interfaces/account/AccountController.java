@@ -50,7 +50,7 @@ public class AccountController {
     }
 
     @GetMapping("/findByAccountLike")
-    public RestfulResponse findByAccountLike(@RequestParam String account) {
+    public RestfulResponse findByAccountLike(@RequestParam(required = false) String account) {
 
         ApplicationResponse applicationResponse = accountApplicationService.findByAccountLike(account);
         List<Account> accounts = (List<Account>) applicationResponse.getBody();

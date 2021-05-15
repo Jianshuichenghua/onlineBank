@@ -1,7 +1,9 @@
 import $axios from './index'
 
+const preFix = '/account';
+
 export function login(data) {
-  const url = '/login'
+  const url = `${preFix}/login`
   return $axios.post(url, data)
 }
 export function getInfo() {
