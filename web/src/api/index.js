@@ -45,7 +45,6 @@ $axios.interceptors.response.use(
     // debugger
     const response = res.data;
     if (response.successful) {
-      debugger
       return Promise.resolve(response.body)
     } else {
       const msg = codeMsgMap[response.code];
