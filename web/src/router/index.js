@@ -172,6 +172,20 @@ export const asyncRoutes = [
     ]
   },
   {
+    path: '/fund/transfer',
+    component: Layout,
+    name: 'transfer',
+    redirect: '/fund/transfer',
+    children: [
+      {
+        path: 'transfer',
+        name: 'transfer-index',
+        component: () => import('@/views/fund/transfer'),
+        meta: { icon: 'el-icon-s-claim', title: 'Transfer' }
+      }
+    ]
+  },
+  {
     path: '/echarts',
     component: Layout,
     name: 'Echarts',
@@ -268,7 +282,7 @@ export function resetRouter() {
   const reset = creatRouter()
   router.matcher = reset.matcher
 }
-const routerRole = ["deposit", "deposit-index", "Home", "Dashbord", "Driver", "Driver-index", "Permission", "PageUser", "PageAdmin", "Roles", "Table", "BaseTable", "ComplexTable", "Icons", "Icons-index", "Components", "Sldie-yz", "Upload", "Carousel", "Echarts", "Sldie-chart", "Dynamic-chart", "Map-chart", "Excel", "Excel-out", "Excel-in", "Mutiheader-out", "Error", "Page404", "Github", "NavTest", "Nav1", "Nav2", "Nav2-1", "Nav2-2", "Nav2-2-1", "Nav2-2-2", "*404"]
+const routerRole = ["transfer", "transfer-index", "deposit", "deposit-index", "Home", "Dashbord", "Driver", "Driver-index", "Permission", "PageUser", "PageAdmin", "Roles", "Table", "BaseTable", "ComplexTable", "Icons", "Icons-index", "Components", "Sldie-yz", "Upload", "Carousel", "Echarts", "Sldie-chart", "Dynamic-chart", "Map-chart", "Excel", "Excel-out", "Excel-in", "Mutiheader-out", "Error", "Page404", "Github", "NavTest", "Nav1", "Nav2", "Nav2-1", "Nav2-2", "Nav2-2-1", "Nav2-2-2", "*404"]
 
 // 导航守卫
 router.beforeEach(async (to, from, next) => {

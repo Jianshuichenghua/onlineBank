@@ -26,7 +26,7 @@ public class AccountController {
     private AccountApplicationService accountApplicationService;
 
     @PostMapping("/register")
-    public RestfulResponse register(@RequestBody AccountDTO accountDTO) {
+    public RestfulResponse register(@ModelAttribute AccountDTO accountDTO) {
 
         Account account = accountConverter.toEntity(accountDTO);
         ApplicationResponse applicationResponse = accountApplicationService.register(account);
