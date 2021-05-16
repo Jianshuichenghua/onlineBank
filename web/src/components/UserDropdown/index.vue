@@ -9,15 +9,15 @@
       </div>
       <el-dropdown-menu solt="dropdown">
         <el-dropdown-item>
-          <router-link to="/"><i class="el-icon-s-home"></i>首页</router-link>
+          <router-link to="/"><i class="el-icon-s-home"></i>Home</router-link>
         </el-dropdown-item>
         <el-dropdown-item>
           <router-link to="/personal"
-            ><i class="el-icon-s-custom"></i>我的主页</router-link
+            ><i class="el-icon-s-custom"></i>My Profile</router-link
           >
         </el-dropdown-item>
         <el-dropdown-item divided>
-          <a @click="_loginOut()"><i class="el-icon-switch-button"></i>登出</a>
+          <a @click="_loginOut()"><i class="el-icon-switch-button"></i>Logout</a>
         </el-dropdown-item>
       </el-dropdown-menu>
     </el-dropdown>

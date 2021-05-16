@@ -24,14 +24,14 @@ export const currencyRoutes = [
     path: '/register',
     name: 'register',
     component: () => import('@/views/register'),
-    meta: { title: '登录页' },
+    meta: { title: 'Register' },
     hidden: true
   },
   {
     path: '/login',
     name: 'login',
     component: () => import('@/views/login'),
-    meta: { title: '登录页' },
+    meta: { title: 'Login' },
     hidden: true
   },
   {

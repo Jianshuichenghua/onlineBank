@@ -26,7 +26,7 @@
         </el-main>
         <el-aside width="40%">
           <div class="login-form">
-            <h3 class="login-title">Register Here</h3>
+            <h3 class="login-title">Login Here</h3>
             <el-form
               ref="loginForm"
               label-position="top"
@@ -53,7 +53,7 @@
                 type="primary"
                 class="loginBtn"
                 @click="loginYz('loginForm')"
-                >登录</el-button
+                >Login</el-button
               >
             </el-form>
           </div>
@@ -88,7 +88,7 @@ export default {
   data() {
     return {
       notifyObj: null,
-      text: "向右滑动",
+      text: "slide right",
       showSlide: false,
       ruleForm: {
         user: "admin",

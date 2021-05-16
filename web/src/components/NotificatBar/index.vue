@@ -2,7 +2,7 @@
   <div class="notificatBar">
     <div class="cardBox">
       <div class="cardHead">
-        <p>消息中心</p>
+        <p>Messages</p>
         <i
           class="el-icon-close"
           @click="$store.commit('app/SET_MSGISOPEN')"
@@ -27,25 +27,25 @@ export default {
       msgList: [
         {
           id: '1',
-          content: '优惠券到期提醒',
+          content: 'coupon expiration reminder',
           link: '',
           time: '2019-06-01'
         },
         {
           id: '2',
-          content: '618大促，请查看活动具体信息',
+          content: 'please check the specific information',
           link: '',
           time: '2019-06-02'
         },
         {
           id: '3',
-          content: '充值成功',
+          content: 'recharge success',
           link: '',
           time: '2019-07-02'
         },
         {
           id: '4',
-          content: '密码充值成功！',
+          content: 'password modified successfully!',
           link: '',
           time: '2019-07-02'
         }
