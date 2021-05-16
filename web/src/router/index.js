@@ -130,11 +130,6 @@ export const asyncRoutes = [
     ]
   },
   {
-    path: 'https://github.com/gcddblue/vue-admin-webapp',
-    name: 'Github',
-    meta: { title: 'Update Profile' }
-  },
-  {
     path: '/icons',
     component: Layout,
     name: 'Icons',

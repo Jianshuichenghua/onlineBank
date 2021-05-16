@@ -84,7 +84,7 @@
       </el-container>
     </el-container>
 
-    <div class="slideShadow" v-show="showSlide">
+    <!-- <div class="slideShadow" v-show="showSlide">
       <transition>
         <div class="slideSty animated bounce">
           <slide-verify
@@ -94,14 +94,14 @@
             :w="350"
             :h="175"
             ref="slideDiv"
-          ></slide-verify>
+          ></slide-verify> 
           <div class="iconBtn">
             <i class="el-icon-circle-close" @click="showSlide = false"></i
             ><i class="el-icon-refresh" @click="refresh"></i>
           </div>
         </div>
       </transition>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -172,8 +172,8 @@ export default {
   mounted() {},
   methods: {
     onSuccess() {
-      this.showSlide = false;
-      this._register();
+      // this.showSlide = false;
+      // this._register();
     },
     onFail() {
       this.$message.error("验证失败");
@@ -184,7 +184,8 @@ export default {
     loginYz(form) {
       this.$refs[form].validate((valid) => {
         if (valid) {
-          this.showSlide = true;
+          // this.showSlide = true;
+           this._register();
         } else {
           return;
         }

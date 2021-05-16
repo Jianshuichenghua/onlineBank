@@ -61,7 +61,7 @@
       </el-container>
     </el-container>
 
-    <div class="slideShadow" v-show="showSlide">
+    <!-- <div class="slideShadow" v-show="showSlide">
       <transition>
         <div class="slideSty animated bounce">
           <slide-verify
@@ -78,7 +78,7 @@
           </div>
         </div>
       </transition>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -121,7 +121,7 @@ export default {
   mounted() {},
   methods: {
     onSuccess() {
-      this.showSlide = false;
+      // this.showSlide = false;
       this._login();
     },
     onFail() {
@@ -133,7 +133,8 @@ export default {
     loginYz(form) {
       this.$refs[form].validate((valid) => {
         if (valid) {
-          this.showSlide = true;
+           this._login();
+          // this.showSlide = true;
         } else {
           return;
         }

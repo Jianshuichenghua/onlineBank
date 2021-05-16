@@ -1,7 +1,8 @@
 <template>
   <div class="user animateClass">
-    <p class="user_p0">Ordinary Users</p>
-    <p class="user_p1">users's Dashboard</p>
+    <p class="user_p0">online banking</p>
+    <p class="user_p1">Ordinary Users</p>
+
     <div class="user_img" ref="aniEnd">
       <img src="https://cn.vuejs.org/images/logo.png" alt="vue" />
     </div>
@@ -9,7 +10,7 @@
 </template>
 
 <script>
-export default {}
+export default {};
 </script>
 <style lang="scss" scoped>
 .animateClass {

@@ -2,6 +2,7 @@ F:\mine\web\onlineBank\server\onlineBank\src\main\java\mine\web\onlineBank\domai
 F:\mine\web\onlineBank\server\onlineBank\src\main\java\mine\web\onlineBank\interfaces\account\AccountConverter.java
 F:\mine\web\onlineBank\server\onlineBank\src\main\java\mine\web\onlineBank\application\account\AccountResponseCodes.java
 F:\mine\web\onlineBank\server\onlineBank\src\main\java\mine\web\onlineBank\interfaces\entity\PageDTO.java
+F:\mine\web\onlineBank\server\onlineBank\src\main\java\mine\web\onlineBank\interfaces\web\CrossConfig.java
 F:\mine\web\onlineBank\server\onlineBank\src\main\java\mine\web\onlineBank\domain\entity\IdEntity.java
 F:\mine\web\onlineBank\server\onlineBank\src\main\java\mine\web\onlineBank\interfaces\fund\FundTransactionLogDTO.java
 F:\mine\web\onlineBank\server\onlineBank\src\main\java\mine\web\onlineBank\infrastructure\repository\AbstractRepository.java

@@ -5,7 +5,7 @@ const resolve = function (dir) {
 
 module.exports = {
   publicPath:
-    process.env.NODE_ENV === 'production' ? '/vue-admin-webapp/' : '/',
+    process.env.NODE_ENV === 'production' ? './' : '/',
   outputDir: 'dist',
   assetsDir: 'static',
   lintOnSave: true, // 是否开启eslint保存检测
@@ -27,7 +27,7 @@ module.exports = {
     },
     proxy: {
       '^/api': {
-        target: 'http://192.168.0.101:8080/online-bank',
+        target: 'http://localhost:8080/online-bank',
         changeOrigin: true,
         logLevel: 'debug',
         pathRewrite: {

@@ -5,12 +5,12 @@ import router from '@/router'
 import Vue from 'vue'
 import { Loading, Message } from 'element-ui' // 引用element-ui的加载和消息提示组件
 const codeMsgMap = {
-  ACCOUNT_IS_BLANK: '账号为空',
-  ACCOUNT_IS_EXISTED: '账号已存在',
-  ACCOUNT_IS_NOT_EXISTED: '账号不存在',
-  TARGET_ACCOUNT_IS_NOT_EXISTED: '目标账号不存在',
-  PASSWORD_IS_WRONG: '密码错误',
-  NOT_SUFFICIENT_FUNDS: '账户余额不足',
+  ACCOUNT_IS_BLANK: 'Account number is empty',
+  ACCOUNT_IS_EXISTED: 'Account number already exists',
+  ACCOUNT_IS_NOT_EXISTED: 'Account does not exist',
+  TARGET_ACCOUNT_IS_NOT_EXISTED: 'The target account does not exist',
+  PASSWORD_IS_WRONG: 'Wrong password',
+  NOT_SUFFICIENT_FUNDS: 'Insufficient account balance',
 }
 const $axios = axios.create({
   // 设置超时时间
@@ -25,7 +25,7 @@ let loading = null
 // 请求拦截器
 $axios.interceptors.request.use(
   config => {
-    loading = Loading.service({ text: '拼命加载中' })
+    loading = Loading.service({ text: 'loading' })
     const token = store.getters.token
     if (token) {
       config.headers.Authorization = token // 请求头部添加token
