@@ -1,6 +1,6 @@
 <template>
   <div>
-    <i class="el-icon-full-screen iconFont" @click="toggleFull"></i>
+    <i class=" el-icon-full-screen iconFont" @click="toggleFull"></i>
   </div>
 </template>
 
