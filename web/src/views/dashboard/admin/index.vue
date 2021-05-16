@@ -13,9 +13,6 @@
             ></count-to>
             <p class="cardItem_p1">Total Visitors</p>
           </div>
-          <div class="cardItem_icon">
-            <i class="el-icon-user color-green1"></i>
-          </div>
         </div>
       </el-col>
       <el-col :span="6">
@@ -28,9 +25,6 @@
               :duration="2000"
             ></count-to>
             <p class="cardItem_p1">Messages</p>
-          </div>
-          <div class="cardItem_icon">
-            <i class="el-icon-s-comment color-blue"></i>
           </div>
         </div>
       </el-col>
@@ -45,9 +39,6 @@
             ></count-to>
             <p class="cardItem_p1">Total Order Placeed</p>
           </div>
-          <div class="cardItem_icon">
-            <i class="el-icon-shopping-cart-2 color-red"></i>
-          </div>
         </div>
       </el-col>
       <el-col :span="6">
@@ -60,9 +51,6 @@
               :duration="2000"
             ></count-to>
             <p class="cardItem_p1">Total Profit</p>
-          </div>
-          <div class="cardItem_icon">
-            <i class="el-icon-wallet color-green2"></i>
           </div>
         </div>
       </el-col>
@@ -124,19 +112,19 @@ export default {
   },
   methods: {
     _getAllData() {
-      this.$http
-        .all([getCardsData(), getLineData(), getTableData(), getBarData()])
-        .then(
-          this.$http.spread((cardData, lineData, tabData, barData) => {
-            this.vistors = cardData.data.vistors
-            this.message = cardData.data.message
-            this.order = cardData.data.order
-            this.profit = cardData.data.profit
-            this.lineChartData = lineData.data
-            ;(this.tableData = tabData.data.tableList),
-              (this.barData = barData.data)
-          })
-        )
+      // this.$http
+      //   .all([getCardsData(), getLineData(), getTableData(), getBarData()])
+      //   .then(
+      //     this.$http.spread((cardData, lineData, tabData, barData) => {
+      //       this.vistors = cardData.data.vistors
+      //       this.message = cardData.data.message
+      //       this.order = cardData.data.order
+      //       this.profit = cardData.data.profit
+      //       this.lineChartData = lineData.data
+      //       ;(this.tableData = tabData.data.tableList),
+      //         (this.barData = barData.data)
+      //     })
+      //   )
     }
   }
 }
