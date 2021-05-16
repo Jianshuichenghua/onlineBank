@@ -26,9 +26,9 @@ export default {
           if (item.meta && item.meta.title) {
             return true;
           }
-        });
-        if (allList[0].path !== "/" && allList[0].path !== "/dashbord") {
-          allList.unshift({ path: "/", meta: { title: "首页" } });
+        })
+        if (allList[0].path !== '/' && allList[0].path !== '/dashbord') {
+          allList.unshift({ path: '/', meta: { title: 'Home' } })
         }
         this.breadList = allList;
       },

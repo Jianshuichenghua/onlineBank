@@ -24,7 +24,7 @@
             <!-- <img src="../../assets/personal/login.png" alt="user" /> -->
           </div>
         </el-main>
-        <el-aside width="40%">
+        <el-aside class="right-sider" width="40%">
           <div class="login-form">
             <h3 class="login-title">Register Here</h3>
             <el-form
@@ -76,7 +76,7 @@
                 type="primary"
                 class="loginBtn"
                 @click="loginYz('loginForm')"
-                >登录</el-button
+                >Register</el-button
               >
             </el-form>
           </div>
@@ -368,7 +368,13 @@ export default {
   color: #48aee9;
   font-size: 40px;
 }
+
+.right-sider{
+  min-width: 400px;
+}
 .login-form {
+      overflow-y: auto;
+    height: calc(100vh - 160px);
   margin-top: 40px;
   width: 360px;
   margin-left: 30px;
